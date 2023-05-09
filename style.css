@@ -59,14 +59,28 @@ nav {
   margin-bottom: 103px;
 }
 
+.top-nav .nav {
+  display: flex;
+}
+
 .nav span:not(:last-of-type) {
   margin-right: 48px;
 }
 
-.nav span:hover {
+.nav span:hover,
+footer a:hover {
+  display: block;
+  cursor: pointer;
   color: var(--secondary-color);
-  font-size: 18px;
   transition: 0.7s all;
+}
+
+.nav span:hover {
+  transform: scale(1.1);
+}
+
+footer a:hover {
+  transform: translateX(6px);
 }
 
 .top-nav a {
@@ -309,6 +323,8 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 16px;
+  margin-left: 16px;
 }
 
 .section-desc .underline {
@@ -351,7 +367,7 @@ form {
 .subscribe input {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
-  width: 361px;
+  width: 100%;
   padding: 12x 26px 12px 26px;
   border: none;
 }
@@ -371,6 +387,7 @@ footer .container {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 106px;
+  gap: 120px;
 }
 
 .footer-form input {
@@ -396,6 +413,10 @@ footer .container {
   border: none;
 }
 
+.right-section {
+  width: 100%;
+}
+
 .right-section > div {
   font-size: 18px;
   margin-bottom: 13px;
@@ -415,9 +436,18 @@ footer .container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 68px;
+  gap: 120px;
+}
+.links {
+  display: flex;
+  gap: 80px;
 }
 
-.first {
+.links a {
+  white-space: nowrap;
+}
+
+/* .first {
   flex-basis: 420px;
 }
 .third {
@@ -426,10 +456,10 @@ footer .container {
 
 .second {
   flex-basis: 183px;
-}
+} */
 
 .copyright {
-  padding-bottom: 17px;
+  padding: 16px;
   text-align: center;
 }
 
@@ -447,6 +477,7 @@ footer .container {
   font-weight: 800;
   font-size: 18px;
   margin-bottom: 21px;
+  white-space: nowrap;
 }
 
 .points div {
@@ -502,6 +533,10 @@ i {
     max-width: 356px;
   }
 
+  .subscribe {
+    margin: unset;
+  }
+
   .main-heading {
     font-size: 40px;
     margin-bottom: 20px;
@@ -535,7 +570,7 @@ i {
   }
 
   .content-points {
-    text-align: center;
+    text-align: left;
   }
 
   .prescription {
@@ -553,6 +588,9 @@ i {
   .section4 {
     margin-bottom: 52px;
   }
+  .section-desc {
+    max-width: 649px;
+  }
   .footer-first {
     margin-bottom: 90px;
   }
@@ -568,21 +606,29 @@ i {
     margin-bottom: 8px;
   }
 
-  .first {
+  /* .first {
     flex-basis: 270px;
   }
   .second {
     flex-basis: 140px;
-  }
+  } */
   .quick {
     margin-bottom: 12px;
   }
-  .third {
+  /* .third {
     flex-basis: 142px;
-  }
+  } */
   .right-section > div {
     font-size: 14px;
     margin-bottom: 4px;
+  }
+  .footer-second {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .links {
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
   }
 }
 
@@ -659,9 +705,9 @@ i {
     margin-bottom: 92px;
   }
   .footer-first {
-    justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 70px;
+    margin-bottom: 48px;
+    gap: 6px;
   }
   .signup-subtitle {
     margin-bottom: 32px;
@@ -675,10 +721,10 @@ i {
     margin-bottom: 8px;
   }
   footer .container {
-    padding: 70px 24px;
+    padding: 40px 24px;
   }
   .footer-second {
-    margin-bottom: 60px;
+    margin-bottom: 10px;
   }
 }
 
@@ -714,9 +760,6 @@ i {
     margin-bottom: 72px;
   }
 
-  .section4 {
-    margin: 16px;
-  }
   .sec-title {
     font-size: 32px;
   }
@@ -735,8 +778,16 @@ i {
   .client-section {
     margin-bottom: 70px;
   }
+
+  .footer-form input {
+    padding: 12px;
+  }
+  .footer-form button {
+    padding: 14px;
+    gap: 8px;
+  }
   .footer-form form {
-    max-width: 366px;
+    max-width: 314px;
   }
   .footer-links {
     text-align: left;
@@ -745,17 +796,22 @@ i {
     font-size: 16px;
     margin-bottom: 36px;
   }
-  .footer-second {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .first {
-    text-align: center;
+
+  .footer-first .right-section {
+    width: 100%;
   }
 
-  .second {
-    margin-bottom: 28px;
+  .footer-second {
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
+
+  .first {
+    align-self: center;
+    width: 100%;
+    /* flex-basis: unset; */
+  }
+
   .quick {
     font-weight: 600;
     /* font-size: 18px; */
@@ -770,16 +826,20 @@ i {
   }
   .footer-second {
     margin-bottom: 40px;
+    gap: 0;
   }
   footer .container {
-    padding: 36px 24px;
+    padding: 24px 20px;
   }
-  .second {
+  .signup-subtitle {
+    margin-bottom: 24px;
+  }
+  /* .second {
     flex-basis: 160px;
   }
   .third {
     flex-basis: 166px;
-  }
+  } */
   .footer-first {
     margin-bottom: 44px;
   }
@@ -788,5 +848,9 @@ i {
   }
   .fourth {
     text-align: left;
+  }
+  .links {
+    flex-direction: column;
+    gap: 24px;
   }
 }
